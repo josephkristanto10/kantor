@@ -22,7 +22,6 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import com.github.javiersantos.appupdater.enums.Display
@@ -74,8 +73,7 @@ class splash : AppCompatActivity() {
                 }
 
             })
-
-        .setButtonDoNotShowAgain("Huh, not interested")
+            .showAppUpdated(true)
             .start()
 
 //        startActivity(
