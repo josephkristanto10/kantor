@@ -1,6 +1,7 @@
 package com.pemerintah.beaconsampah
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -56,6 +57,28 @@ class splash : AppCompatActivity() {
             .setUpdateFrom(UpdateFrom.GITHUB)
             .setGitHubUserAndRepo("josephkristanto10", "kantor")
             .start()
+        AppUpdater(this)
+            .setTitleOnUpdateAvailable("Update available")
+            .setContentOnUpdateAvailable("Check out the latest version available of my app!")
+            .setTitleOnUpdateNotAvailable("Update not available")
+            .setContentOnUpdateNotAvailable("No update available. Check for updates again later!")
+            .setButtonUpdate("Update now?")
+            .setButtonUpdateClickListener(object : DialogInterface,
+                DialogInterface.OnClickListener {
+                override fun dismiss() {
+                }
+
+                override fun cancel() {
+                }
+
+                override fun onClick(dialog: DialogInterface?, which: Int) {
+                    update()
+                }
+
+            })
+
+        .setButtonDoNotShowAgain("Huh, not interested")
+            .start()
 //        startActivity(
 //            Intent(
 //                Intent.ACTION_VIEW,
@@ -70,7 +93,7 @@ class splash : AppCompatActivity() {
     }
     fun update()
     {
-        var test =  Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/josephkristanto10/kantor/tree/master"))
+        var test =  Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/josephkristanto10/kantor"))
     }
     fun methodWithPermissions() = runWithPermissions(Manifest.permission.CAMERA,  Manifest.permission.READ_EXTERNAL_STORAGE,  Manifest.permission.WRITE_EXTERNAL_STORAGE,  Manifest.permission.ACCESS_FINE_LOCATION,  Manifest.permission.ACCESS_COARSE_LOCATION) {
 
