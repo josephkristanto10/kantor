@@ -52,7 +52,7 @@ class splash : AppCompatActivity() {
 //
 //            .setCancelable(false) // Dialog could not be dismissab
 //            .start()
-        val appUpdater = AppUpdater(this)
+         AppUpdater(this)
             .setUpdateFrom(UpdateFrom.GITHUB)
             .setGitHubUserAndRepo("josephkristanto10", "kantor")
             .start()
