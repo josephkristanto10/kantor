@@ -7,11 +7,23 @@ import android.os.Bundle
 import com.livinglifetechway.quickpermissions_kotlin.runWithPermissions
 import kotlinx.android.synthetic.main.activity_splash.*
 import com.github.javiersantos.appupdater.AppUpdater
-import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.net.Uri
 import com.github.javiersantos.appupdater.enums.UpdateFrom
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import com.github.javiersantos.appupdater.enums.AppUpdaterError
+import com.github.javiersantos.appupdater.objects.Update
+import com.github.javiersantos.appupdater.AppUpdaterUtils
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.util.Log
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 
 class splash : AppCompatActivity() {
@@ -23,7 +35,7 @@ class splash : AppCompatActivity() {
         getSupportActionBar()!!.hide()
         act = this
         methodWithPermissions()
-        update()
+//        update()
 //        val appUpdater = AppUpdater(this)
 //            .setTitleOnUpdateAvailable("Update available")
 //            .setContentOnUpdateAvailable("Check out the latest version available of my app!")
@@ -36,6 +48,12 @@ class splash : AppCompatActivity() {
 //
 //            .setCancelable(false) // Dialog could not be dismissab
 //            .start()
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://github.com/josephkristanto10/kantor")
+            )
+        )
         buttonNexttoDashboard.setOnClickListener({
             var intent = Intent(act, dashboard::class.java)
             finish()
