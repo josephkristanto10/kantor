@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">beaconsampah</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="server">https://hirosolution.com/client/proyekpemerintah/</string>
+</resources>
