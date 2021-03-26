@@ -36,6 +36,7 @@ dependencies {
     implementation 'com.schibstedspain.android:leku:8.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.12'
+    implementation 'com.github.javiersantos:AppUpdater:2.7'
     implementation 'com.github.quickpermissions:quickpermissions-kotlin:0.4.0'
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
