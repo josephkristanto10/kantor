@@ -55,8 +55,7 @@ class splash : AppCompatActivity() {
         val appUpdater = AppUpdater(this)
             .setUpdateFrom(UpdateFrom.GITHUB)
             .setGitHubUserAndRepo("josephkristanto10", "kantor")
-            .showEvery(5)
-        appUpdater.start()
+            .start()
 //        startActivity(
 //            Intent(
 //                Intent.ACTION_VIEW,
