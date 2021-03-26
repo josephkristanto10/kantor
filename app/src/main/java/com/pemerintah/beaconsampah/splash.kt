@@ -16,12 +16,16 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import com.github.javiersantos.appupdater.enums.AppUpdaterError
 import com.github.javiersantos.appupdater.objects.Update
 import com.github.javiersantos.appupdater.AppUpdaterUtils
-import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 
 
@@ -48,12 +52,17 @@ class splash : AppCompatActivity() {
 //
 //            .setCancelable(false) // Dialog could not be dismissab
 //            .start()
-        startActivity(
-            Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://github.com/josephkristanto10/kantor")
-            )
-        )
+        val appUpdater = AppUpdater(this)
+            .setUpdateFrom(UpdateFrom.GITHUB)
+            .setGitHubUserAndRepo("josephkristanto10", "kantor")
+            .showEvery(5)
+        appUpdater.start()
+//        startActivity(
+//            Intent(
+//                Intent.ACTION_VIEW,
+//                Uri.parse("https://github.com/josephkristanto10/kantor")
+//            )
+//        )
         buttonNexttoDashboard.setOnClickListener({
             var intent = Intent(act, dashboard::class.java)
             finish()
