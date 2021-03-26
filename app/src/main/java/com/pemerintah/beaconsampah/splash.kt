@@ -25,10 +25,7 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
-
-
-
+import com.github.javiersantos.appupdater.enums.Display
 
 
 class splash : AppCompatActivity() {
@@ -58,6 +55,7 @@ class splash : AppCompatActivity() {
             .setGitHubUserAndRepo("josephkristanto10", "kantor")
             .start()
         AppUpdater(this)
+            .setDisplay(Display.SNACKBAR)
             .setTitleOnUpdateAvailable("Update available")
             .setContentOnUpdateAvailable("Check out the latest version available of my app!")
             .setTitleOnUpdateNotAvailable("Update not available")
@@ -79,6 +77,7 @@ class splash : AppCompatActivity() {
 
         .setButtonDoNotShowAgain("Huh, not interested")
             .start()
+
 //        startActivity(
 //            Intent(
 //                Intent.ACTION_VIEW,
