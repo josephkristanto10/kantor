@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageViewBackMapView"
+            android:id="@+id/imageViewBackTambahRekap"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="20dp"
@@ -38,7 +38,7 @@
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageViewBackMapView"
+            app:layout_constraintStart_toEndOf="@+id/imageViewBackTambahRekap"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -105,14 +105,14 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextNamaLokasiBaru2"
+            android:id="@+id/editTextJumlahBeratSampah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/roundedoutline"
             android:ems="10"
             android:hint="Masukkan Jumlah Berat"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:padding="10dp"
             android:textAlignment="center"
             android:textColor="#347244"

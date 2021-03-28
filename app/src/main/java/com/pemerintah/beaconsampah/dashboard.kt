@@ -11,6 +11,9 @@ import android.view.View
 import android.widget.ScrollView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.loopj.android.http.AsyncHttpClient
+import com.loopj.android.http.AsyncHttpResponseHandler
+import com.loopj.android.http.RequestParams
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.activity_tambahtimbangan.view.*
 import java.text.SimpleDateFormat
@@ -43,10 +46,10 @@ class dashboard : AppCompatActivity() {
             startActivity(intent)
         })
         TimbangMenu.setOnClickListener({
-            customtimbang("xx", "x")
+            customtimbang(preferences.getString("Key Username","").toString(), preferences.getString("Key ID","").toString())
         })
         imageViewTimbang.setOnClickListener({
-            customtimbang("xx", "x")
+            customtimbang(preferences.getString("Key Username","").toString(), preferences.getString("Key ID","").toString())
         })
         if(preferences.contains(KEYID))
         {
@@ -72,7 +75,7 @@ class dashboard : AppCompatActivity() {
 
         })
     }
-    fun customtimbang(nama:String, id:String)
+    fun customtimbang(nama:String, ids:String)
     {
         var mDialogView = LayoutInflater.from(act).inflate(R.layout.activity_tambahtimbangan, null)
         val mBuilder = AlertDialog.Builder(this@dashboard)
@@ -80,9 +83,50 @@ class dashboard : AppCompatActivity() {
         val  mAlertDialog = mBuilder.show()
         mDialogView.textViewNamaPembuangSampah.setText("Petugas $nama")
         var simpleDateFormat = SimpleDateFormat("dd MM yyyy")
+        var simpleDateFormatupload = SimpleDateFormat("yyyy-MM-dd")
         val currentDate = simpleDateFormat.format(Date()).toString()
+        val currentDateupload = simpleDateFormatupload.format(Date()).toString()
         mDialogView.textViewTanggalPembuanganSampah.setText(currentDate.toString())
+        mDialogView.buttonSubmitSampah.setOnClickListener({
+            if(!mDialogView.editTextJumlahBeratSampah.text.toString().equals(""))
+            {
+                val alertDialogBuilder = AlertDialog.Builder(
+                    this
+                )
+                alertDialogBuilder.setTitle("Upload Confirmation")
+                alertDialogBuilder
+                    .setMessage("Are you sure to upload this data?")
 
+                    .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, id ->
+
+                        var params = RequestParams()
+                        params.put("tipe", "uploadsampah")
+                        params.put("idpetugas", ids)
+                        params.put("tanggal", currentDateupload)
+                        params.put("berat", mDialogView.editTextJumlahBeratSampah.text.toString())
+                        var client = AsyncHttpClient()
+                        client.post(getString(R.string.server)+"sampah.php", params, object:AsyncHttpResponseHandler(){
+                            override fun onSuccess(content: String) {
+                                Toast.makeText(act , "Data pembuangan sampah telah diupload", Toast.LENGTH_SHORT).show()
+                                mAlertDialog.dismiss()
+                            }
+                        })
+                    })
+                    .setNegativeButton("cancel", DialogInterface.OnClickListener { dialog, id ->
+                        dialog.cancel()
+                    })
+                val alertDialog = alertDialogBuilder.create()
+                alertDialog.show()
+            }
+            else
+            {
+                Toast.makeText(act, "Silahkan isikan berat", Toast.LENGTH_SHORT).show()
+            }
+
+        })
+        mDialogView.imageViewBackTambahRekap.setOnClickListener({
+            mAlertDialog.dismiss()
+        })
     }
     override fun onBackPressed() {
         val alertDialogBuilder = AlertDialog.Builder(
