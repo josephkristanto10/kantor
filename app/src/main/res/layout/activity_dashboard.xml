@@ -49,7 +49,7 @@
 
                         <TextView
                             android:id="@+id/textView3"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Dashboard"
                             android:textColor="#C2FFC8"
@@ -58,13 +58,28 @@
                             app:fontFamily="@font/lato" />
 
                         <TextView
-                            android:id="@+id/textView4"
+                            android:id="@+id/textViewNama"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Hello Sobat,"
+                            android:textColor="#C2FFC8"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/textViewLogin"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="Hello Joseph K,"
-                            android:textColor="#C2FFC8"
-                            android:textSize="16sp" />
+                            android:background="@drawable/roundedpanel"
+                            android:backgroundTint="#1A4980"
+                            android:padding="5dp"
+                            android:elevation="8dp"
+                            android:text="Login"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -85,15 +100,52 @@
                     android:padding="10dp">
 
                     <LinearLayout
+                        android:id="@+id/TimbangMenu"
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/circlepanel"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageViewTimbang"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                app:srcCompat="@drawable/scale" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_horizontal"
+                            android:text="Timbang"
+                            android:textColor="#C7E4FF"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/TPSMenu"
                         android:layout_width="75dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/circlepanel"
                             android:gravity="center"
@@ -101,8 +153,8 @@
 
                             <ImageView
                                 android:id="@+id/imageView3"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 app:srcCompat="@drawable/mapfix" />
                         </LinearLayout>
 
@@ -128,8 +180,8 @@
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/circlepanel"
                             android:gravity="center"
@@ -137,8 +189,8 @@
 
                             <ImageView
                                 android:id="@+id/imageView3"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 app:srcCompat="@drawable/recycle" />
                         </LinearLayout>
 
@@ -163,8 +215,8 @@
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/circlepanel"
                             android:gravity="center"
@@ -172,8 +224,8 @@
 
                             <ImageView
                                 android:id="@+id/imageView3"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 app:srcCompat="@drawable/report" />
                         </LinearLayout>
 

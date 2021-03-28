@@ -49,32 +49,32 @@ class splash : AppCompatActivity() {
 //
 //            .setCancelable(false) // Dialog could not be dismissab
 //            .start()
-         AppUpdater(this)
-            .setUpdateFrom(UpdateFrom.GITHUB)
-            .setGitHubUserAndRepo("josephkristanto10", "kantor")
-            .start()
-        AppUpdater(this)
-            .setDisplay(Display.SNACKBAR)
-            .setTitleOnUpdateAvailable("Update available")
-            .setContentOnUpdateAvailable("Check out the latest version available of my app!")
-            .setTitleOnUpdateNotAvailable("Update not available")
-            .setContentOnUpdateNotAvailable("No update available. Check for updates again later!")
-            .setButtonUpdate("Update now?")
-            .setButtonUpdateClickListener(object : DialogInterface,
-                DialogInterface.OnClickListener {
-                override fun dismiss() {
-                }
-
-                override fun cancel() {
-                }
-
-                override fun onClick(dialog: DialogInterface?, which: Int) {
-                    update()
-                }
-
-            })
-            .showAppUpdated(true)
-            .start()
+//         AppUpdater(this)
+//            .setUpdateFrom(UpdateFrom.GITHUB)
+//            .setGitHubUserAndRepo("josephkristanto10", "kantor")
+//            .start()
+//        AppUpdater(this)
+//            .setDisplay(Display.SNACKBAR)
+//            .setTitleOnUpdateAvailable("Update available")
+//            .setContentOnUpdateAvailable("Check out the latest version available of my app!")
+//            .setTitleOnUpdateNotAvailable("Update not available")
+//            .setContentOnUpdateNotAvailable("No update available. Check for updates again later!")
+//            .setButtonUpdate("Update now?")
+//            .setButtonUpdateClickListener(object : DialogInterface,
+//                DialogInterface.OnClickListener {
+//                override fun dismiss() {
+//                }
+//
+//                override fun cancel() {
+//                }
+//
+//                override fun onClick(dialog: DialogInterface?, which: Int) {
+//                    update()
+//                }
+//
+//            })
+//            .showAppUpdated(true)
+//            .start()
 
 //        startActivity(
 //            Intent(
